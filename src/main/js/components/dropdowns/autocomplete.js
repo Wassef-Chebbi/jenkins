@@ -20,12 +20,19 @@ function init() {
     };
     return {
       displayName: suggestion.name,
-      onClick: confirm,
+      onClick: (evt) => {
+        if (evt) {
+          evt.preventDefault();
+          evt.stopPropagation();
+        }
+        confirm();
+      },
       onKeyPress: (evt) => {
-        if (evt.key === "Tab") {
+        if (evt.key === "Tab" || evt.key === "Enter") {
           confirm();
           e.dropdown.hide();
           evt.preventDefault();
+          evt.stopPropagation();
         }
       },
     };
