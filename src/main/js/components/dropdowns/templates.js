@@ -203,20 +203,13 @@ function menuItem(dropdownItem, type = "jenkins-dropdown__item", context = "") {
 
   const item = createElementFromHtml(`
       <${tag}
-        ${tag === "button" ? 'type="button"' : ""}
         ${optionalVals({
           class: clazz,
           href: url,
           id: itemOptions.id,
           "data-html-tooltip": itemOptions.tooltip,
-     <${tag}
-       ${optionalVals({
-         class: clazz,
-         href: url,
-         id: itemOptions.id,
-         "data-html-tooltip": itemOptions.tooltip,
-         type: tag === "button" ? "button" : null,
-       })}>
+          type: tag === "button" ? "button" : null,
+        })}>
           ${icon(itemOptions)}
           ${label}
           ${badge(itemOptions)}
